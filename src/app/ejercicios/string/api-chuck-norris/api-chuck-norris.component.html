@@ -1,0 +1,71 @@
+<div class="cardShape shape1 p-4 mt-3">
+    <div class="mb-2 fade-spinner" [class.show]="cargando">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Cargando...</span>
+        </div>
+    </div>
+
+    <div *ngIf="publicacion ">
+        <label class="form-label">Resultado:</label>
+        <div class="alert alert-success">{{ publicacion }}</div>
+    </div>
+    <h5>Api Chuck Norris</h5>
+
+    <div class="d-flex align-items-end gap-2 flex-wrap">
+        <div class="mb-1">
+            <label for="categoria" class="form-label">Categoría:</label>
+            <select id="categoria" class="w-100 " [(ngModel)]="categoriaSeleccionada">
+                <option value="">Elige una opción </option>
+                <option *ngFor="let categoria of categorias" [value]="categoria">
+                    {{ categoria }}
+                </option>
+            </select>
+        </div>
+
+        <div class="mb-1 text-center position-relative">
+            <button class="btn-azul px-3" (click)="cargarChistePorCategoria(categoriaSeleccionada)"
+                [disabled]="!categoriaSeleccionada"
+                (mouseenter)="mostrarMensaje2 = true"
+                (mouseleave)="mostrarMensaje2 = false">
+                Chiste por categoria <i class="bi bi-play-fill ms-1"></i>
+            </button>
+            <span *ngIf="!categoriaSeleccionada && mostrarMensaje2"
+                class="position-absolute bg-dark text-white px-2 py-1 rounded"
+                style="top: -35px; left: 50%; transform: translateX(-50%); font-size: 0.8rem;">
+                Selecciona una categoria
+            </span>
+        </div>
+        <div class="mb-1 text-center position-relative">
+                <button class="btn-azul px-3" (click)="cargarChiste()"
+                    [disabled]="esUsuarioPlus || categoriaSeleccionada" 
+                    (mouseenter)="mostrarMensaje1 = true"
+                    (mouseleave)="mostrarMensaje1 = false">
+                    Chiste aleatorio <i class="bi bi-play-fill ms-1"></i>
+                </button>
+
+                
+                <span *ngIf="(esUsuarioPlus) && mostrarMensaje1"
+                    class="position-absolute bg-dark text-white px-2 py-1 rounded"
+                    style="top: -35px; left: 50%; transform: translateX(-50%); font-size: 0.8rem;">
+                    Debes ser usuario premiun
+                </span>
+                <span *ngIf="(esUsuarioPremiun && categoriaSeleccionada) && mostrarMensaje1"
+                    class="position-absolute bg-dark text-white px-2 py-1 rounded"
+                    style="top: -85px; left: 50%; transform: translateX(-50%); font-size: 0.8rem;">
+                    Has seleccionado una categoría debes puslsar el boton por categoria
+                </span>
+        </div>
+
+        <div class="mb-1">
+            <button type="button" class="btn-rojo ms-1 px-3" (click)="limpiar()">
+                Borrar <i class="bi bi-eraser-fill ms-1"></i>
+            </button>
+        </div>
+
+        <div *ngIf="esCompartido" class="mb-1">
+            <button type="button" class="btn-verde px-3 ms-1" (click)="compartir()">
+                Compartir <i class="bi bi-send-fill ms-1"></i>
+            </button>
+        </div>
+    </div>
+</div>

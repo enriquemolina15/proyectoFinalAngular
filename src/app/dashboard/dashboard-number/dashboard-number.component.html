@@ -1,0 +1,11 @@
+<div class="cardShape shape1 card-number">
+    <a routerLink="/dashboard-number/number/calculadora" class="me-3">Calculadora</a>
+    <a routerLink="/dashboard-number/number/mini-calculadora" class="me-3">Mini-calculadora</a>
+</div>
+<div *ngIf="!estaOcultaTarjeta" class="cardShape shape1 p-4 m-5">
+        <h2>Bienvenido a Number</h2>
+        <p>Selecciona una actividad desde el submenú para continuar.</p>
+    </div>
+<div>
+    <router-outlet></router-outlet>
+</div>

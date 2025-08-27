@@ -1,0 +1,52 @@
+<div *ngIf="listaPlanetas.length > 0" class="contenedor shape">
+  <div>
+    <div>
+      <div class="efecto-imagen">
+        <img class="p-3"  [src]="listaPlanetas[actual].imagen" alt="{{ listaPlanetas[actual].nombre }}"
+        (click)="planetaSeleccionado = listaPlanetas[actual];enviarPlaneta(listaPlanetas[actual].idPlaneta)">
+      </div>
+      
+      <h5>{{ listaPlanetas[actual].nombre }}</h5>
+    </div>
+
+    <div class=" zona-text mt-3 d-flex justify-content-between">
+      <button class="btn btn-outline-primary m-2" (click)="anterior();cambiarPlaneta($event)"
+        [disabled]="actual === 0">Anterior</button>
+      <button class="btn btn-outline-primary m-2" (click)="siguiente();cambiarPlaneta($event)"
+        [disabled]="actual === listaPlanetas.length - 1">Siguiente</button>
+      <div class="m-2">
+        <select id="categoria" class="form-select border-primary text-primary" [value]="valorInicio"
+          (change)="cambiarPlaneta($event)">
+          <option value="">Elige planeta</option>
+          <option *ngFor="let planeta of listaPlanetas; let i = index" [value]="i">
+            {{ planeta.nombre }}
+          </option>
+        </select>
+        <p class="info-parrafo">Haz clic en la imagen para ver más información</p>
+      </div>
+      <button class="btn btn-outline-danger ms-4  m-2" (click)="cerrar()">Cerrar</button>
+    </div>
+    <a (click)="abrirDialogo()" class="enlace-faqs">FAQs <i class="bi bi-question-circle-fill"></i></a>
+  </div>
+</div>
+<app-dialogo-personalizado [dialogoVisible]="dialogoVisible" (cambiarDialogoVisible)="dialogoVisible = $event"
+  [titulo]="'Preguntas Frecuentes'" [botonesCerrar]="true">
+  <div class="shape p-5">
+    <ol class=" lista-bg">
+      <li><a (click)="cargarFaqs('destruido')" class="enlace-faqs">¿Que planetas estan destruidos? <i class="bi bi-box-arrow-up-right ms-1"></i></a></li>
+
+      <li><a (click)="cargarFaqs('sin')" class="enlace-faqs">¿Que planetas no tienen habitantes conocidos? <i
+            class="bi bi-box-arrow-up-right ms-1"></i></a></li>
+    </ol>
+  </div>
+</app-dialogo-personalizado>
+
+<app-tabla-personalizada *ngIf="tablaVisible"
+(cambiarTablaVisible)="tablaVisible = $event"
+[titulo1]="titulo1"
+[titulo2]="titulo2"
+[cabecera]="['Nombre','Planeta']" 
+[datos]="planetasFiltrados"
+[propiedadesAMostrar]="['nombre','imagen']"
+[tablaClase]="['table',' table-bordered','border-light']" 
+></app-tabla-personalizada>

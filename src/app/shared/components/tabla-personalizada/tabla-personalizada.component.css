@@ -1,0 +1,78 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden; /* Para ocultar las esquinas superiores e inferiores de las celdas */
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  font-family: sans-serif;
+  text-shadow: 1px 1px 0 #fff ;
+  color:#8f8888 ;
+  box-shadow: inset 2px 2px 5px #babecc,inset -5px -5px 10px #fff;
+
+}
+.trContenido{
+  font-size: 16px;
+
+}
+.texto-centrado {
+  text-align: center;
+  align-content: center;
+}
+th {
+  font-size:18px;
+  background-color: #d9d9d9;
+}
+
+.footer{
+  background-color:  #d9d9d9;
+
+
+}
+
+.tabla-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255,255,255, 0.5);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tabla-overlay.Invisible {
+  display: none; /* Oculta el componente */
+}
+img{
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    
+}
+
+/* Icono X */
+.custom-close-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.custom-x-icon {
+  font-size: 24px;
+  color: black;
+}
+@keyframes flotar {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+
+.imagen-flotante:hover {
+  animation: flotar 2s infinite ease-in-out;
+}

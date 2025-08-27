@@ -1,1 +1,177 @@
-/* You can add global styles to this file, and also import other style files */
+.contenedor {
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 1200px;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #d9d9d9;
+}
+
+app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main.contenedor {
+  flex: 1;
+}
+
+.fade-spinner {
+  display: none;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.fade-spinner.show {
+  display: block;
+  opacity: 1;
+}
+
+.cardShape {
+  padding: 1rem;
+  margin-bottom: 2px;
+  border-radius: 15px;
+  max-height: 600px;
+  overflow: auto;
+}
+
+.cardBody {
+  display: flex;
+  gap: 10px;
+  padding: 15px;
+}
+
+
+.shape1 {
+  background-color: #d9d9d9;
+  border-color: #d9d9d9;
+  box-shadow: -5px -5px 10px #ffffff83, 5px 5px 10px #ffffff;
+}
+
+.shape {
+  background: #d9d9d9;
+  border-radius: 12px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  box-shadow: -3px -3px 9px #ffffff83, 3px 3px 7px rgba(94, 104, 121, 0.46),
+    inset -3px -3px 9px #ffffff83, inset 3px 3px 7px rgba(94, 104, 121, 0.46);
+}
+
+
+
+.lista-bg {
+  background-color: #d9d9d9;
+}
+
+.lista-bg .list-group-item {
+  background-color: #d9d9d9 !important;
+}
+
+butto {
+  border: none;
+  height: 35px;
+  font-size: 1em;
+  margin: 10px;
+  border-radius: 30px;
+  box-shadow: -3px -3px 9px #ffffff83, 3px 3px 7px rgba(94, 104, 121, 0.46),
+    inset -3px -3px 9px #ffffff83, inset 3px 3px 7px rgba(94, 104, 121, 0.46);
+
+}
+
+button {
+
+  margin: 10px;
+  border: none;
+  height: 35px;
+  border-radius: 25px;
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
+  box-shadow: -5px -5px 20px rgb(224, 217, 217), 5px 5px 20px #babecc;
+  outline: none;
+}
+
+.btn-m {
+  width: 75px;
+}
+
+.btn-l {
+  width: 100px;
+}
+
+.btn-xl {
+  width: 125px;
+}
+
+.btn-azul {
+  background: rgb(82, 182, 221);
+}
+
+.btn-rojo {
+  background: rgb(220, 53, 69);
+}
+
+.btn-verde {
+  background: rgb(40, 167, 69);
+}
+
+.btn-amarillo {
+  background: rgb(255, 193, 7);
+}
+
+.btn-naranja {
+  background: #fb912d;
+}
+
+.btn-violeta {
+  background: #912dfb;
+}
+
+
+button:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+input,
+textarea,
+select {
+  display: block;
+  width: 50%;
+  margin-bottom: 10px;
+  padding: 15px;
+  border: none;
+  outline: none;
+  font-family: sans-serif;
+  background: #eff2f5;
+  font-size: 16px;
+  border-radius: 25px;
+  text-shadow: 1px 1px 0 #fff;
+  box-shadow: -3px -3px 9px #ffffff83, 3px 3px 7px rgba(94, 104, 121, 0.46),
+    inset -3px -3px 9px #ffffff83, inset 3px 3px 7px rgba(94, 104, 121, 0.46);
+
+}
+
+textarea {
+  width: 98%;
+}
+
+label {
+  font-family: sans-serif;
+  text-shadow: 1px 1px 0 #fff;
+}
+
+input:focus {
+  box-shadow: inset 1px 1px 2px #babecc, inset -1px -1px 2px #fff;
+}

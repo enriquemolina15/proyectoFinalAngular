@@ -1,0 +1,79 @@
+
+<div class="cardShape shape1">
+  <div class=" m-2 ">
+    <h2 class="texShape m-2 text-center">{{titulo}}</h2>
+  <div *ngIf="buscador">
+    <button type="button"  icon="pi pi-refresh" class="mb-2 mr-2" (click)="limpiarFiltro()"></button>
+    <input
+      placeholder="Buscar..." type="text" [(ngModel)]="filtro"/>
+    <button type="button" icon="pi pi-search" class="mb-2 ml-2" (click)="ngOnChanges()"></button>
+  </div>
+</div>
+  <div *ngIf="datosFiltrados.length > 0">
+    <table  [class]="claseString">
+      <thead>
+      <tr>
+        <ng-container *ngFor="let header of cabecera">
+          <th>{{ header }}</th>
+        </ng-container>
+        <th *ngIf="botonBorrar ||botonEditar">Acciones</th>
+      </tr>
+      </thead>
+      <tbody>
+     <tr *ngFor="let row of datosFiltrados | paginate: { itemsPerPage: numeroDeFilas, currentPage: paginaActual }; let i = index">
+  <ng-container *ngFor="let propiedad of propiedadesAMostrar">
+    <td class="trContenido">
+      <input *ngIf="editandoIndex === i"
+             [(ngModel)]="row[propiedad]"
+             class="form-control" />
+      <span *ngIf="editandoIndex !== i">{{ row[propiedad] }}</span>
+    </td>
+  </ng-container>
+
+  <td *ngIf="botonBorrar || botonEditar">
+    <div class="flex flex-wrap gap-3 justify-content-center">
+      <button class="btn-rojo me-2"
+              *ngIf="botonBorrar"
+              (click)="borrar(i)">
+        Borrar
+      </button>
+
+      <button class="btn-amarillo"
+              *ngIf="botonEditar && editandoIndex !== i"
+              (click)="activarEdicion(i)">
+        Editar
+      </button>
+
+      <button class="btn-verde"
+              *ngIf="botonEditar && editandoIndex === i"
+              (click)="guardarEdicion(row)">
+        Guardar
+      </button>
+    </div>
+  </td>
+</tr>
+
+      </tbody>
+      <tfoot>
+
+      <tr >
+        <td class="footer text-center" [attr.colSpan]="propiedadesAMostrar.length + 1">
+          <pagination-controls (pageChange)="paginaActual = $event"></pagination-controls>
+        </td>
+      </tr>
+
+      </tfoot>
+    </table>
+
+  </div>
+  <div class="text-center" *ngIf="datosFiltrados.length === 0">
+  <span>No hay datos guardados.</span>
+</div>
+</div>
+
+
+
+
+
+
+

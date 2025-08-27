@@ -1,0 +1,19 @@
+<div class="cardShape shape1 p-3">
+    <div class="shape1 cardShape mb-3">
+        <h2 class="text-center">SessionStorage</h2>
+        <div class="cardBody">
+            <label>Nombre:</label>
+            <input type="text" [(ngModel)]="llave">
+            <label>Valor:</label>
+            <input type="text" [(ngModel)]="valor">
+        </div>
+
+        <div class="cardBody">
+            <button class="btn-azul" (click)="guardarSessionStorage()">Guardar</button>
+        </div>
+    </div>
+    <app-tabla-personalizada-crud [cabecera]="['Nombre','valor']" [datos]="sesiones"
+        [propiedadesAMostrar]="['llave','valor']" [tablaClase]="['table',' table-bordered','border-light']"
+        (borrarEmitido)="borrarSessionStorage($event)" (editarEmitido)="editarSessionStorage($event)"
+        [botonEditar]="true" [botonBorrar]="true"></app-tabla-personalizada-crud>
+</div>

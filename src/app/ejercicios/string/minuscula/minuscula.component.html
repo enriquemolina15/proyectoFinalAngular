@@ -1,0 +1,16 @@
+
+<div class="cardShape shape1 p-4 mt-3">
+    <div *ngIf="resultado">
+        <label class="form-label">Resultado:</label>
+        <div class="alert alert-success">{{ resultado }}</div>
+    </div>
+    <h5>Transformar texto a:  Minúsculas</h5>
+    <div class="mb-3">
+        <button type="button" class="btn-azul btn-m me-2" (click)="todoMinuscula()">a-z</button>
+        <button type="button" class="btn-azul btn-m me-2" (click)="primeraMinuscula()" >a_</button>
+        <button type="button" class="btn-azul btn-m me-2" (click)="ultimaMinuscula()">_z</button>
+        <button type="button" class="btn-azul btn-m me-2" (click)="vocalesMinusculas()">aeiou</button>
+        <button type="button" class="btn-azul btn-m me-5" (click)="consonantesMinusculas()" >bc</button>
+        <button type="button" class="btn-rojo ms-5" (click)="limpiar()" ><i class="bi bi-eraser-fill"></i> Borrar</button>
+    </div>
+</div>

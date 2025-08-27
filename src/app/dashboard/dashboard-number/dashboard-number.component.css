@@ -1,0 +1,16 @@
+
+.card-number {
+    width: 900px;
+    margin: 2px;
+    text-align: center;
+}
+
+.card-number a {
+    color: rgba(5, 4, 4, 0.9);
+    text-decoration: none;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
+}
+
+.card-number a:hover {
+    color: rgb(38, 45, 242);
+}

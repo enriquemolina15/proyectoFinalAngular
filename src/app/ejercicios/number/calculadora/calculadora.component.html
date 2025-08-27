@@ -1,0 +1,83 @@
+ <div class="main">
+
+     <div class="container-calculadora">
+         <div class="pantalla">
+             <div id="visor">{{visor}}</div>
+             <div>{{resultado}}</div>
+             <div id="guardado"></div>
+             <div id="resultado">{{resultado}}</div>
+            </div>
+            
+            <div class="switch-container">
+                <button (click)="activarGuardado()" [disabled]="!encendido">M+</button>
+                <button class="btnGuardar" (click)="usarMemoria('A')" [disabled]="!encendido">A</button>
+                <button class="btnGuardar" (click)="usarMemoria('B')" [disabled]="!encendido">B</button>
+                <label class="switch">
+                    <input type="checkbox" (change)="encendidoApagado($event)">
+                    <span class="slider"></span>
+                    <span class="on">ON</span>
+                    <span class="off">OFF</span>
+                </label>
+            </div>
+           <fieldset [disabled]="!encendido">
+            <div >
+                <div id="cientifica" [class.mostrar]="mostrarCientifica" class="panel-cientifica">
+                    <div>
+                        <button (click)="agregar('(')">(</button>
+                        <button (click)="agregar(')')">)</button>
+                        <button (click)="agregar('π')">π</button>
+                        <button (click)="agregar('e')">e</button>
+                    </div>
+                    <div>
+                        <button (click)="agregar('√')">√</button>
+                        <button (click)="agregar('log')">log</button>
+                        <button (click)="agregar('ln')">ln</button>
+                        <button (click)="agregar('^')">^</button>
+                    </div>
+                    <div>
+                        <button (click)="agregar('sin')">sin</button>
+                        <button (click)="agregar('cos')">cos</button>
+                        <button (click)="agregar('tan')">tan</button>
+                        <button (click)="agregar('Rnd')">Rnd</button>
+                    </div>
+                </div>
+                
+                <div>
+                    <div>
+                        <button (click)="borrar()">←</button>
+                        <button (click)="limpiar()">C</button>
+                        <button (click)="agregar('%')">%</button>
+                        <button class="color" (click)="agregar('/')">/</button>
+                    </div>
+                    <div>
+                        <button (click)="agregar('7')">7</button>
+                        <button (click)="agregar('8')">8</button>
+                        <button (click)="agregar('9')">9</button>
+                        <button class="color" (click)="agregar('*')" >*</button>
+                    </div>
+                    <div>
+                        <button (click)="agregar('4')">4</button>
+                        <button (click)="agregar('5')">5</button>
+                        <button (click)="agregar('6')">6</button>
+                        <button class="color" (click)="agregar('-')">-</button>
+                    </div>
+                    <div>
+                        <button (click)="agregar('1')">1</button>
+                        <button (click)="agregar('2')">2</button>
+                        <button (click)="agregar('3')">3</button>
+                        <button class="color" (click)="agregar('+')">+</button>
+                    </div>
+                    <div>
+                        <button (click)="verCientifica()">🧮</button>
+                        <button (click)="agregar('0')">0</button>
+                        <button (click)="agregar('.')">.</button>
+                        <button class="color" (click)="calcular()">=</button>
+                    </div>
+                </div>
+            </div>
+           </fieldset> 
+            
+            
+        </div>
+
+    </div>

@@ -1,0 +1,44 @@
+.fondo {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 84%;
+    background-image: url('/assets/img/dragonball.avif');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+.scroll-horizontal {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.ancho-minimo {
+  min-width: max-content;
+}
+
+img{
+    max-height: 250px; 
+    object-fit: cover;
+}
+@keyframes flotar {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+
+.imagen-flotante {
+  animation: flotar 2s infinite ease-in-out;
+}
+
+.enlace-personaje {
+  text-decoration: none;
+  color: #0d6efd; /* azul Bootstrap */
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+
+.enlace-personaje:hover {
+  text-decoration: underline;
+}

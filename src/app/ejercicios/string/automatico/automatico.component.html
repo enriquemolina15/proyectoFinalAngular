@@ -1,0 +1,17 @@
+<div class="cardShape shape1 p-4 mt-3">
+        <div *ngIf="resultado">
+            <label class="form-label">Resultado: {{accionAleatoria}}</label>
+            <div class="alert alert-info">{{ resultado }}</div>
+        </div>
+        <h5>Transformación automática</h5>
+        <div class="d-flex gap-2">
+            <button type="button" class="btn-verde btn-m me-5" (click)="toggle()">
+                {{ intervalo ? 'Parar' : 'Iniciar' }}
+            </button>
+            <label >acelerar :</label>
+            <button type="button" class="btn-azul btn-m" (click)="acelerar()"><i class="bi bi-plus"></i></button>
+            <button type="button" class="btn-azul btn-m" (click)="decelerar()"><i class="bi bi-dash"></i></button>
+            <label *ngIf="resultado" >velocidad : {{velocidad /1000}}s.</label>
+             <button *ngIf="intervalo == null && texto != ''" type="button" class="btn-rojo ms-5" (click)="limpiar()" ><i class="bi bi-eraser-fill"></i> Borrar</button>
+        </div>
+</div>

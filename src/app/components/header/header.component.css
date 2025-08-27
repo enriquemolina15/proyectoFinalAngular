@@ -1,0 +1,23 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  padding: 5px 15px;
+  border-radius: 15px;
+   margin: 10px;
+  color: rgba(5, 4, 4, 0.9);
+  text-shadow: 2px 2px 4px rgba(145, 138, 138, 0.75);
+}
+.header-content {
+  flex-grow: 1;
+}
+
+
+.header-profile img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+}

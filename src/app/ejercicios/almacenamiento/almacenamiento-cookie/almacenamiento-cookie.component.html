@@ -1,0 +1,20 @@
+<div class="cardShape shape1 p-3">
+    <div class="shape1 cardShape mb-3">
+        <h2 class="text-center">Cookie</h2>
+        <div class="cardBody">
+            <label>Nombre:</label>
+            <input type="text" [(ngModel)]="nombre">
+            <label>Valor:</label>
+            <input type="text" [(ngModel)]="valor">
+        </div>
+
+        <div class="cardBody">
+            <button class="btn-azul" (click)="guardar()">Guardar</button>
+        </div>
+    </div>
+    <app-tabla-personalizada-crud [cabecera]="['Nombre','valor']"
+        [datos]="cookies" [propiedadesAMostrar]="['nombre','valor']"
+        [tablaClase]="['table',' table-bordered','border-light']" 
+        (borrarEmitido)="borrarCookie($event)" (editarEmitido)="actualizarCookie($event)" [botonEditar]="true"
+        [botonBorrar]="true"></app-tabla-personalizada-crud>
+</div>

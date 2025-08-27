@@ -1,0 +1,134 @@
+<div *ngIf="!accederVisible" class="packs">
+    <div class="shape1 card-pack">
+        <div class="pack m-3">
+            <span>Pack basic <i class="bi bi-box-seam"></i></span>
+            <ul>
+                <li>
+                    <p>String</p>
+                    <ul>
+                        <li>Mayusculas</li>
+                        <li>Minusculas</li>
+                    </ul>
+                </li>
+                <li>
+                    <p>Number</p>
+                    <ul>
+                        <li>Mini-calculadora</li>
+                        <li>Calculadora (solo visitar)</li>
+                    </ul>
+                </li>
+            </ul>
+            <button (click)="PackRegistro('basico')" class="btn-azul btn-l"><i class="bi bi-cart-fill"></i>
+                Obtener</button>
+        </div>
+    </div>
+
+
+    <div class="shape1 card-pack">
+        <div class="pack m-3">
+
+            <span>Pack plus <i class="bi bi-lightning-charge-fill"></i></span>
+            <ul>
+                <li>
+                    <p>String</p>
+                    <ul>
+                        <li>Mayusculas</li>
+                        <li>Minusculas</li>
+                        <li>aleatorio</li>
+                        <li>Automatico</li>
+                        <li>Jsonpalceholder</li>
+                        <li>Chistes Chuk Norris (solo algunos)</li>
+                    </ul>
+                </li>
+                <li>
+                    <p>Number</p>
+                    <ul>
+                        <li>Mini-calculadora</li>
+                        <li>Calculadora</li>
+                    </ul>
+                </li>
+                <li>
+                    <p>Dragonball</p>
+                    <ul>
+                        <li>Personajes (solo al listado)</li>
+                        <li>Planetas (solo al listado)</li>
+                    </ul>
+                </li>
+            </ul>
+            <button (click)="PackRegistro('plus')" class="btn-azul btn-l"><i class="bi bi-cart-fill"></i>
+                Obtener</button>
+        </div>
+    </div>
+
+    <div class="shape1 card-pack">
+        <div class="pack m-3 ">
+
+            <span>Pack Premiun <i class="bi bi-gem"></i></span>
+            <ul>
+                <li>
+                    <p>String</p>
+                    <ul>
+                        <li>Acceso total</li>
+                    </ul>
+                </li>
+                <li>
+                    <p>Number</p>
+                    <ul>
+                        <li>Acceso total</li>
+                    </ul>
+                </li>
+                <li>
+                    <p>Dragonball</p>
+                    <ul>
+                        <li>Acceso total</li>
+                    </ul>
+                </li>
+                <li>
+                    <p>Almacenamiento</p>
+                    <ul>
+                        <li>acceso limitado a localStorage(solo administrador)</li>
+                    </ul>
+                </li>
+            </ul>
+            <button (click)="PackRegistro('premiun')" class="btn-azul "> <i class="bi bi-cart-fill"></i>
+                Obtener</button>
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="accederVisible">
+    <div class="login-box ">
+        <h2>Registro de usuario</h2>
+        <div class="text-center">
+            <input type="text" placeholder="Nombre" [(ngModel)]="nombre" required>
+            <div class="position-relative">
+                <input [type]="mostrarClave ? 'text' : 'password'" placeholder="Contraseña" [(ngModel)]="clave" required
+                    class="form-control pe-5">
+
+                <i class="bi toggle-icon" [ngClass]="mostrarClave ? 'bi-eye-slash' : 'bi-eye'"
+                    (click)="mostrarClave = !mostrarClave">
+                </i>
+            </div>
+
+            <button (click)="registrar()" class="btn-azul"> Registrarse <i class="bi bi-person-plus"></i> </button>
+            <button (click)="volverInicio()" class="btn-azul">Cancelar <i class="bi bi-x-lg"></i></button>
+        </div>
+        <hr />
+        <div *ngIf="mensaje" class="mt-3 text-danger text-center">
+            {{ mensaje }}
+        </div>
+    </div>
+</div>
+<app-dialogo-personalizado [dialogoVisible]="dialogoVisible" (cambiarDialogoVisible)="dialogoVisible = $event">
+    <div>
+        <div class="card-dialogo m-3">
+            <span class="px-2 m-4">¡Existe un usuario! <i class="bi bi-person-exclamation"></i></span>
+            <button (click)="cerrarSesion()" class="btn-azul  px-3 m-4">Cerrar Sesion <i
+                    class="bi bi-door-closed"></i></button>
+            <button (click)="volverInicio()" class="btn-azul btn-xl m-4">Inicio <i
+                    class="bi bi-house-door"></i></button>
+        </div>
+    </div>
+
+</app-dialogo-personalizado>

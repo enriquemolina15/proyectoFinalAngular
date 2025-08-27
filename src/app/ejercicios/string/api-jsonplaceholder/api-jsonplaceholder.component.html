@@ -1,0 +1,32 @@
+<div class="cardShape shape1 p-4 mt-3">
+    <div class=" fade-spinner" [class.show]="cargando">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Cargando...</span>
+        </div>
+    </div>
+    <div *ngIf="publicacion">
+        <label class="form-label">Resultado:</label>
+        <div class="alert alert-success">{{ publicacion }}</div>
+    </div>
+    <h5>Api JSONPlaceholder</h5>
+    <div class="d-flex align-items-end gap-1 flex-wrap">
+        <div class="mb-1 me-4">
+            <label class="ms-3 ">Numero de publicacion: </label>
+            <input type="number" [(ngModel)]="numero" max="100" min="1"
+                placeholder="1 hasta el 100 y pulsa Post">
+        </div>
+        <div class="mb-1">
+            <button class="btn-azul  px-3" (click)="cargarPost()" [disabled]="!numero">Post<i
+                    class="bi bi-play-fill ms-1"></i></button>
+        </div>
+        <div class="mb-1">
+
+            <button type="button" class="btn-rojo ms-5 px-3" (click)="limpiar()">Borrar<i
+                    class="bi bi-eraser-fill ms-1"></i></button>
+        </div>
+        <div class="mb-1">
+            <button type="button" class="btn-verde  px-3  ms-5" (click)="compartir()"
+                [disabled]="!esCompartido">Compartir<i class="bi bi-send-fill ms-1"></i></button>
+        </div>
+    </div>
+</div>

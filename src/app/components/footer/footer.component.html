@@ -1,0 +1,29 @@
+<footer class="text-center p-3 shape1  py-3    mt-4">
+  <small>
+    &copy; 2025 Enriqie Antonio Molina Fernandez - Proyecto de aprendizaje Angular | 
+    <a href="https://github.com/tu-repo" target="_blank">GitHub</a> |
+    <a href="#" (click)="abrirPolitica()">Política de privacidad</a>
+  </small>
+</footer>
+<app-dialogo-personalizado [dialogoVisible]="dialogoVisible" (cambiarDialogoVisible)="dialogoVisible = $event"
+   [botonesCerrar]="true">
+<div>
+    <div class="m-2 row align-items-center">
+      <div class="col text-center">
+        <h2 class="texShape mb-0">Política de Privacidad</h2>
+      </div>
+      
+    </div>
+    <div class="m-2">
+      <p>
+        Esta aplicación es un proyecto de práctica. No se recopilan datos
+        personales, y toda la información almacenada en cookies, 
+        localStorage, sessionStorage o IndexedDB permanece en tu navegador.
+      </p>
+      <p>
+        Si borras los datos del navegador, la información se eliminará.
+      </p>
+    </div>
+  </div>
+
+</app-dialogo-personalizado>

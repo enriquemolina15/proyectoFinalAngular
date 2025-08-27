@@ -1,0 +1,59 @@
+<nav class="nav-container shape1">
+  <ul class="navbar">
+    <li><a routerLink="/" class="me-3">Inicio</a></li>
+    <li><a routerLink="/dashboard-string/string" class="me-3">String</a></li>
+    <li><a routerLink="/dashboard-number/number" class="me-3">Number</a></li>
+    <li><a routerLink="/dashboard-dragonball" class="me-3">Dragonball</a></li>
+    <li class="dropdown">
+      <a>Almacenamiento</a>
+      <ul class="dropdown-content">
+        <li><a routerLink="almacenamiento/almacenamiento-cookie">Cookie</a></li>
+        <li><a routerLink="almacenamiento/almacenamiento-localStorage">LocalStorage</a></li>
+        <li><a routerLink="almacenamiento/almacenamiento-sessionStorage">SessionStorage</a></li>
+        <li><a routerLink="almacenamiento/almacenamiento-indexedDB">IndexedDB</a></li>
+      </ul>
+    </li>
+  </ul>
+  <ul class="navbar">
+    <!-- Si el usuario está logueado -->
+    <ng-container *ngIf="estaLogueado(); else noLogueado">
+
+
+      <li>
+        <ng-container *ngIf="esPosibleQueSeaElProfe(); else noEsElProfeSoyYo">
+          <div class="header-profile">
+            <img src="/assets/img/fotoPerfilJota.jpg" alt="Foto de perfil" />
+            {{ usuarioLogueado() }}
+          </div>
+        </ng-container>
+
+        <ng-template #noEsElProfeSoyYo>
+          <ng-container *ngIf="esPosibleQueSeaYo(); else otroPerfil">
+            <div class="header-profile">
+              <img src="/assets/img/fotoPerfil.png" alt="Foto de perfil" />
+              {{ usuarioLogueado() }}
+            </div>
+          </ng-container>
+        </ng-template>
+
+        <ng-template #otroPerfil>
+          <div class="d-flex align-items-center justify-content-center">
+            <i class="bi bi-person-circle fs-3 me-2"></i>
+            <span>{{ usuarioLogueado() }}</span>
+          </div>
+        </ng-template>
+
+
+      </li>
+
+      <li><a class="enlace-logout" (click)="cerrarSesion()">cerrar sesión</a></li>
+
+    </ng-container>
+    <!-- Si NO está logueado -->
+    <ng-template #noLogueado>
+      <li><a routerLink="/registro">Registro</a></li>
+      <li><a routerLink="/login">Login</a></li>
+    </ng-template>
+  </ul>
+
+</nav>

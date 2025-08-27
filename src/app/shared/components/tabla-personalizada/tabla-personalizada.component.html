@@ -1,0 +1,47 @@
+<div  class="tabla-overlay">
+    <div class="cardShape shape1">
+        <div class="m-2 row align-items-center">
+            <div class="col-auto">
+                <button class="custom-close-button d-none d-md-inline" (click)="closeTabla()">
+                    <span class="custom-x-icon">X</span>
+                </button>
+            </div>
+            <div class="col text-center">
+                <h2 class="texShape mb-0">{{ titulo1 }}</h2>
+            </div>
+            <div class="col-auto text-end">
+                <button (click)="closeTabla()" class="btn btn-primary d-none d-sm-inline">Cerrar</button>
+            </div>
+        </div>
+        <div class="m-2">
+            <h2 class="texShape m-2 text-center">{{titulo2}}</h2>
+            <div>
+                <table [class]="claseString">
+                    <thead>
+                        <tr>
+                            <ng-container *ngFor="let header of cabecera">
+                                <th>{{ header }}</th>
+                            </ng-container>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let row of listaDatos">
+                            <ng-container *ngFor="let propiedad of propiedadesAMostrar">
+                                <td class="trContenido texto-centrado ">
+                                    <ng-container *ngIf="propiedad === 'imagen'; else textoNormal">
+                                        <img class="imagen-flotante" [src]="row[propiedad]" alt="imagen">
+                                    </ng-container>
+                                    <ng-template #textoNormal>
+                                        {{ row[propiedad] }}
+                                    </ng-template>
+                                </td>
+                            </ng-container>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>

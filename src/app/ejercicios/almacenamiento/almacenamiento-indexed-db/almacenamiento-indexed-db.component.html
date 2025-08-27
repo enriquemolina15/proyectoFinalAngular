@@ -1,0 +1,20 @@
+
+<div class="cardShape shape1 p-3">
+    <div class="shape1 cardShape mb-3">
+        <h2 class="text-center">IndexedDB</h2>
+        <div class="cardBody">
+            <label>Nombre:</label>
+            <input type="text" [(ngModel)]="nombre">
+            <label>Valor:</label>
+            <input type="text" [(ngModel)]="valor">
+        </div>
+
+        <div class="cardBody">
+            <button class="btn-azul" (click)="guardarIndexedDB()">Guardar</button>
+        </div>
+    </div>
+    <app-tabla-personalizada-crud  [cabecera]="['nombre','valor']" [datos]="datosIndexedDB"
+        [propiedadesAMostrar]="['nombre','valor']" [tablaClase]="['table',' table-bordered','border-light']"
+         (borrarEmitido)="borrarDato($event)" (editarEmitido)="editarDato($event)"
+        [botonEditar]="true" [botonBorrar]="true"></app-tabla-personalizada-crud>
+</div>

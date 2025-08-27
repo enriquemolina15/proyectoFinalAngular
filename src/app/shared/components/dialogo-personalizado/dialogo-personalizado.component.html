@@ -1,0 +1,20 @@
+<div *ngIf="dialogoVisible" class="dialogo-overlay">
+  <div class="cardShape shape1 position-relative">
+   
+    <button class="btn-close position-absolute top-0 end-0 m-2"
+            (click)="closeDialog()"
+            *ngIf="botonesCerrar">
+    </button>
+
+      <div class="text-center">
+        <h2 class="texShape mb-0">{{ titulo }}</h2>
+      </div>
+    
+    <div class="m-2">
+      <ng-content></ng-content>
+    </div>
+    <div class="text-center">
+      <button (click)="closeDialog()" class="btn btn-primary d-none d-sm-inline" *ngIf="botonesCerrar">Cerrar</button>
+    </div>
+  </div>
+</div>

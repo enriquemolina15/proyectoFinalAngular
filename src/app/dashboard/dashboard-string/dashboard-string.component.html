@@ -1,0 +1,40 @@
+<div class="cardShape shape1 card-string">
+    <a routerLink="/dashboard-string/string/mayusculas" class="me-3"
+        (click)="desactivarNotificacion('mayusculas')">Mayusculas<i *ngIf="notificacion.mayusculas"
+            class="bi bi-bell-fill text-warning  ms-1"></i></a>
+    <a routerLink="/dashboard-string/string/minusculas" class="me-3"
+        (click)="desactivarNotificacion('minusculas')">Minúsculas<i *ngIf="notificacion.minusculas"
+            class="bi bi-bell-fill text-warning  ms-1"></i></a>
+    <a routerLink="/dashboard-string/string/aleatorio" class="me-3"
+        (click)="desactivarNotificacion('aleatorio')">Aleatorio<i *ngIf="notificacion.aleatorio"
+            class="bi bi-bell-fill text-warning  ms-1"></i></a>
+    <a routerLink="/dashboard-string/string/automatico" class="me-3"
+        (click)="desactivarNotificacion('automatico')">Automático<i *ngIf="notificacion.automatico"
+            class="bi bi-bell-fill text-warning  ms-1"></i></a>
+    <a routerLink="/dashboard-string/string/jsonplaceholder" class="me-3">Jsonplaceholder</a>
+    <a routerLink="/dashboard-string/string/chistes" class="me-3">Chiste</a>
+
+</div>
+<div>
+    <app-dialogo-personalizado [dialogoVisible]="esValidado" [titulo]="'String'" [botonesCerrar]="true" (cambiarDialogoVisible)="esValidado = $event">
+        <div class="cardShape shape  p-4 ">
+            <div class="d-flex align-items-center justify-content-between">
+                <h2 class="m-0 me-5">El texto está vacío o tiene menos de tres letras.</h2>
+            </div>
+        </div>
+    </app-dialogo-personalizado>
+   
+
+    <div *ngIf="!estaOculto">
+        <textarea [(ngModel)]="texto" (input)="enviarTexto()" name="texto" class="m-2"
+            placeholder="Escribe aquí..."></textarea>
+
+    </div>
+    <div *ngIf="!estaOcultaTarjeta" class="cardShape shape1 p-4 m-5">
+        <h2>Bienvenido a String</h2>
+        <p>Selecciona una actividad desde el submenú para continuar.</p>
+    </div>
+    <div>
+        <router-outlet></router-outlet>
+    </div>
+</div>

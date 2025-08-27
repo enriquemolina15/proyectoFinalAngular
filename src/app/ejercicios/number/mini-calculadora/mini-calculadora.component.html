@@ -1,0 +1,34 @@
+<div class="shape p-1 mt-3">
+  <div class="card-mini">
+    <h2 class="text-center">Mini calculadora</h2>
+    <div class="d-flex align-items-center gap-2 flex-wrap">
+      
+      <label for="op1">Operando 1:</label>
+      <input type="text" id="op1" [(ngModel)]="op1" name="op1" class=" w-auto">
+
+      <label for="op2">Operando 2:</label>
+      <input type="text" id="op2" [(ngModel)]="op2" name="op2" class=" w-auto">
+    </div>
+
+    <div class="mt-2">
+      <button (click)="operar('+')">+</button>
+      <button (click)="operar('-')">-</button>
+      <button (click)="operar('*')">*</button>
+      <button (click)="operar('/')">/</button>
+      <button (click)="operar('entera')">_.</button>
+      <button (click)="operar('decimal')">._</button>
+      <button (click)="operar('raiz')">√</button>
+      <button (click)="operar('log10')">log(10)</button>
+      <button (click)="operar('loge')">log(e)</button>
+      <button (click)="operar('logn')">log(n)</button>
+      <button (click)="operar('aleatorio')">🎲</button>
+      <button (click)="operar('aleatorio_rango')">[🎲]</button>
+      <button (click)="operar('intercambiar')">🔁</button>
+      <button (click)="operar('aleatorio_letraM')">[A...Z]</button>
+      <button (click)="operar('aleatorio_letram')">[a...z]</button>
+      <button class="rojo" (click)="borrar()">Borrar <i class="bi bi-eraser-fill"></i></button>
+    </div>
+
+    <p><span>{{texto}}</span><strong>{{resultado}}</strong></p>
+  </div>
+</div>

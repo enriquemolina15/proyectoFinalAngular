@@ -1,0 +1,172 @@
+    .container-calculadora {
+        max-width: 350px;
+        margin: 30px auto;
+        padding: 20px;
+        border: 15px solid #ccc;
+        border-radius: 30px;
+        text-align: center;
+        font-family: sans-serif;
+        background: #eff2f5;
+        box-shadow: -3px -3px 9px #ffffff83, 3px 3px 7px rgba(94, 104, 121, 0.688);
+
+    }
+
+    .switch-container {
+        display: flex;
+        width: 100%;
+        margin: 20px;
+
+    }
+
+
+
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 80px;
+        height: 40px;
+        cursor: pointer;
+        margin-left: 10px;
+
+    }
+
+    .switch input {
+        display: none;
+    }
+
+    .slider {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border: 2px solid #ecf0f3;
+        border-radius: 20px;
+        box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
+            -2px -2px 12px rgba(255, 255, 255, 0.5),
+            inset -2px -2px 8px rgba(255, 255, 255, 1),
+            inset -2px -2px 12px rgba(255, 255, 255, 0.5),
+            inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+            inset 2px 2px 8px rgba(0, 0, 0, .3),
+            2px 2px 8px rgba(0, 0, 0, .3);
+        background-color: #ecf0f3;
+    }
+
+    .slider:before {
+        position: absolute;
+        bottom: 5px;
+        left: 10px;
+        z-index: 999;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
+            -2px -2px 12px rgba(255, 255, 255, 0.5),
+            inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+            2px 2px 8px rgba(0, 0, 0, .3);
+        background-color: #ecf0f3;
+        content: "";
+        transition: .5s;
+    }
+
+    .off {
+        position: absolute;
+        top: 14px;
+        right: 12px;
+        color: #3d3935;
+        font-size: .8125rem;
+    }
+
+    .on {
+        position: absolute;
+        top: 14px;
+        left: 14px;
+        color: #f252a5;
+        font-size: .8125rem;
+    }
+
+    input:checked+.slider:before {
+        transform: translateX(33px);
+    }
+
+
+   
+    button {
+        color: initial;
+        width: 55px;
+        margin: 3px;
+        border: none;
+        height: 35px;
+        font-size: 1em;
+        border-radius: 30px;
+        box-shadow: -3px -3px 9px #ffffff83, 3px 3px 7px rgba(94, 104, 121, 0.46),
+            inset -3px -3px 9px #ffffff83, inset 3px 3px 7px rgba(94, 104, 121, 0.46);
+
+    }
+
+    button:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+
+
+    .btnGuardar {
+        border-radius: 50%;
+        width: 40px;
+        margin-left: 10px;
+    }
+
+    .color {
+        background: linear-gradient(145deg, #ffa726, #fb8c00);
+        border: none;
+        font-size: 18px;
+    }
+
+
+
+    #resultado {
+        font-weight: bold;
+        font-size: 1.3em;
+        margin-top: 10px;
+        white-space: nowrap;
+    }
+
+    #visor {
+        font-size: 1.3em;
+    }
+
+    .pantalla {
+        overflow-y: hidden;
+        overflow-x: auto;
+        text-align: right;
+        padding: 10px;
+        margin: 20px;
+        width: 250px;
+        height: 100px;
+        border: 2px solid black;
+        border-radius: 10px;
+
+        background: rgba(255, 255, 255, 0.42);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .panel-cientifica {
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+        transition: max-height 0.6s ease, opacity 0.6s ease;
+    }
+
+    .panel-cientifica.mostrar {
+        max-height: 500px;
+        /* Ajusta según el contenido */
+        opacity: 1;
+    }
+
+    .guardado {
+        color: #f252a5;
+    }
