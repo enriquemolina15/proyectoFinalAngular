@@ -45,7 +45,10 @@ p {
     margin: 5px 0;
 }
 
-
+ li i{
+  color: #007bff; 
+  cursor: pointer;
+}
 
 .login-box {
   width: 350px;

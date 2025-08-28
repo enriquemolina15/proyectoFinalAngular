@@ -15,6 +15,8 @@ export class RegistroUsuarioComponent implements OnInit{
   public accederVisible:boolean;
   public dialogoVisible:boolean;
   public mostrarClave: boolean;
+ public mostrarMensaje: boolean;
+ public esLogueado:boolean;
 
   constructor(
     private authService: AuthService, private router: Router
@@ -26,10 +28,13 @@ export class RegistroUsuarioComponent implements OnInit{
     this.accederVisible = false;
     this.dialogoVisible = false;
     this.mostrarClave = false;
+    this.mostrarMensaje = false;
+    this.esLogueado =false;
     
   }
   ngOnInit(): void {
     this.dialogoVisible=  this.usuarioExistente()
+    this.authService.esLogueado$.subscribe(esLoguado =>this.esLogueado = esLoguado)
   }
 
   usuarioExistente(){

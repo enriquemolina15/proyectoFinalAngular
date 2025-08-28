@@ -83,12 +83,29 @@
                         <li>Acceso total</li>
                     </ul>
                 </li>
-                <li>
-                    <p>Almacenamiento</p>
-                    <ul>
-                        <li>acceso limitado a localStorage(solo administrador)</li>
-                    </ul>
-                </li>
+               <li>
+  <p>Almacenamiento</p>
+  <ul>
+ <li class="position-relative">
+  localStorage (solo administrador) 
+  <i (mousedown)="mostrarMensaje = true"
+     (mouseup)="mostrarMensaje = false"
+     (mouseleave)="mostrarMensaje = false"
+     class="bi bi-question-circle me-5 text-center"
+     ></i>
+
+  <!-- tooltip dentro del li -->
+  <span *ngIf="mostrarMensaje" 
+        class="position-absolute bg-dark text-white px-2 py-1 rounded"
+        style="top: -90px; left: 50%; transform: translateX(-50%); font-size: 0.8rem;">
+    Debes ser usuario premium y registrarse con nombre: administrador
+  </span>
+</li>
+
+</ul>
+
+</li>
+
             </ul>
             <button (click)="PackRegistro('premiun')" class="btn-azul "> <i class="bi bi-cart-fill"></i>
                 Obtener</button>

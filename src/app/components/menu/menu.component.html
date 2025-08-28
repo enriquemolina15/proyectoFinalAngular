@@ -16,7 +16,7 @@
   </ul>
   <ul class="navbar">
     <!-- Si el usuario está logueado -->
-    <ng-container *ngIf="estaLogueado(); else noLogueado">
+    <ng-container *ngIf="authService.esLogueado$ | async; else noLogueado">
 
 
       <li>

@@ -36,8 +36,6 @@ export class LoginComponent {
   comprobar(){
     this.route.queryParams.subscribe(params => {
       if (params['registrado'] === 'true') {
-        console.log("2222");
-        
         this.dialogoVisible = false
       }else{
         this.dialogoVisible = this.usuarioExistente()
@@ -52,6 +50,7 @@ login() {
       this.mensaje = '';
       this.router.navigate(['']); 
       this.intentosFallidos = 0;
+      this.authService.estaLogueado(true);
     } else {
       this.intentosFallidos++;
       this.mensaje = '❌ Usuario o contraseña incorrectos.';

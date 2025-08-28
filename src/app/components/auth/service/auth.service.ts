@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Usuario } from '../model/usuario';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -43,5 +44,11 @@ export class AuthService {
    logout(): void {
     localStorage.removeItem(this.key);
   }
+  private esLogueado = new BehaviorSubject<boolean>(false);
+    esLogueado$ = this.esLogueado.asObservable();
+  
+    estaLogueado(estaLogueado: boolean) {
+      this.esLogueado.next(estaLogueado);
+    }
 
 }

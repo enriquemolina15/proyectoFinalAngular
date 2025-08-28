@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { AuthService } from '../auth/service/auth.service';
 import { Router } from '@angular/router';
 
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class MenuComponent {
   constructor(
-    private authService: AuthService, private router: Router
+    public authService: AuthService, private router: Router, private cd: ChangeDetectorRef
   ) { }
   usuarioLogueado(): string  {
     return this.authService.obtenerNombreUsuario();
@@ -26,9 +26,10 @@ export class MenuComponent {
 
   cerrarSesion() {
     this.authService.logout();
+    this.authService.estaLogueado(false);
+    this.cd.detectChanges();
     this.router.navigate(['']);
   }
-  estaLogueado():boolean {
-    return this.authService.estaAutenticado()
-  }
+  
+ 
 }
